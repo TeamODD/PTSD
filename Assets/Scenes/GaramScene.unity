@@ -1401,14 +1401,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 785189580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df435e9192199b544a2bfac27fc6c426, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b67d28df4092149ad1a39084898695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
   maxSpeed: 3.5
   Ice: 0
-  rb: {fileID: 0}
-  spriteRenderer: {fileID: 0}
 --- !u!1 &834733784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,7 +2343,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627143668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3107b4bc5b87bf743b9d0015740c8b11, type: 3}
+  m_Script: {fileID: 11500000, guid: 9998fde4583c8924281e2b66430eaa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destinationMgr: {fileID: 869761387}
@@ -2359,10 +2357,6 @@ MonoBehaviour:
   fadeOutTime: 0.3
   fadeHoldTime: 1
   fadeInTime: 0.3
-  playerInRange: 0
-  CamFol: {fileID: 0}
-  PMove_Garam: {fileID: 0}
-  nextMove: 0
 --- !u!1 &1702816613
 GameObject:
   m_ObjectHideFlags: 0
