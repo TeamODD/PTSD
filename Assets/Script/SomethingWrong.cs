@@ -9,16 +9,22 @@ public class OverlapClickDetector : MonoBehaviour
     private bool isOverlapping = false;
 
     private PortalManager Pmg;
+    private CameraFollowShake Cam;
 
     private void Start()
     {
         Pmg = PortalManager.Instance;
+        Cam = CameraFollowShake.Instance;
     }
     private void FixedUpdate()
     {
         if (isFeatureActivated)
         {
             Pmg.allowRandom = isFeatureActivated;
+
+            //CameraFollowShake.Instance.Shake(10f, 0.3f); // 카메라 충격
+            //CameraFollowShake.Instance.Zoom(0.8f, 0.4f);  // 확대
+
             isFeatureActivated = false;
         }
             
