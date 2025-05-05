@@ -790,8 +790,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f446f419cb9b2074fa8ce3d16887848e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraZoom: 1
+  fadeOutTime: 0.3
+  fadeHoldTime: 1
+  fadeInTime: 0.3
   ob2: {fileID: 229312691}
+  spawn: {fileID: 1940755051}
   Bang_light: {fileID: 1421221237}
+  bullet: 8
 --- !u!114 &229312694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,7 +1239,7 @@ GameObject:
   - component: {fileID: 785189582}
   - component: {fileID: 785189581}
   - component: {fileID: 785189585}
-  - component: {fileID: 785189584}
+  - component: {fileID: 785189586}
   - component: {fileID: 785189583}
   m_Layer: 0
   m_Name: Player
@@ -1359,20 +1365,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &785189584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785189580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a511de3fe89be245bafe6db58da9b62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 2
-  runSpeed: 4
 --- !u!50 &785189585
 Rigidbody2D:
   serializedVersion: 5
@@ -1399,7 +1391,21 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &785189586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785189580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba283aeac11c3da40ad4e6e8b1ef99ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1.5
+  maxSpeed: 4
 --- !u!1 &834733784
 GameObject:
   m_ObjectHideFlags: 0
