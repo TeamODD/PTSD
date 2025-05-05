@@ -717,7 +717,7 @@ Transform:
   m_GameObject: {fileID: 229312690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.561, y: 1.175, z: 0}
+  m_LocalPosition: {x: -3.686, y: 1.175, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -791,9 +791,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraZoom: 1
-  fadeOutTime: 0.3
+  fadeOutTime: 1.5
   fadeHoldTime: 1
-  fadeInTime: 0.3
+  fadeInTime: 0.2
   ob2: {fileID: 229312691}
   spawn: {fileID: 1940755051}
   Bang_light: {fileID: 1421221237}
@@ -1401,11 +1401,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 785189580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba283aeac11c3da40ad4e6e8b1ef99ef, type: 3}
+  m_Script: {fileID: 11500000, guid: df435e9192199b544a2bfac27fc6c426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
-  maxSpeed: 4
+  maxSpeed: 3.5
+  Ice: 0
+  rb: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &834733784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,6 +2331,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1123085988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1627143668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2266798962530520339, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+  m_PrefabInstance: {fileID: 8969933626522392458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1627143673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627143668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3107b4bc5b87bf743b9d0015740c8b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationMgr: {fileID: 869761387}
+  roomIndex: 0
+  newMinCameraPos: {x: -100, y: -100}
+  newMaxCameraPos: {x: 100, y: 100}
+  deadZoneEnabled: 0
+  destinationPortals: []
+  ITKey: {fileID: 0}
+  cameraZoom: 1
+  fadeOutTime: 0.3
+  fadeHoldTime: 1
+  fadeInTime: 0.3
+  playerInRange: 0
+  CamFol: {fileID: 0}
+  PMove_Garam: {fileID: 0}
+  nextMove: 0
 --- !u!1 &1702816613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,10 +2858,14 @@ PrefabInstance:
       propertyPath: destinationMgr
       value: 
       objectReference: {fileID: 869761387}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8306025467833777602, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2266798962530520339, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1627143673}
   m_SourcePrefab: {fileID: 100100000, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
