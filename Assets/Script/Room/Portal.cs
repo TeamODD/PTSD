@@ -63,7 +63,7 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange && Input.GetKeyDown(KeyCode.W))
         {
             StartCoroutine(PortalInteract());
         }
