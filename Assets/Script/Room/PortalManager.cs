@@ -15,7 +15,7 @@ public class PortalManager : MonoBehaviour
     public int currentRoomIndex = -1;
 
     // ture 시작 → false면 무조건 태초로, true면 랜덤
-    public bool allowRandom = true;
+    public bool allowRandom = false;
 
 
     void Awake()
@@ -45,6 +45,7 @@ public class PortalManager : MonoBehaviour
     /// </summary>
     public Transform GetNextDestination()
     {
+        /*
         // 1) allowRandom 이 false 면 → 태초로 돌려보내고, 다음엔 다시 랜덤 허용
         if (!allowRandom)
         {
@@ -66,5 +67,8 @@ public class PortalManager : MonoBehaviour
         allowRandom = (chosen == primordialPortal);
 
         return chosen;
+        */
+        return primordialPortal;
+
     }
 }
