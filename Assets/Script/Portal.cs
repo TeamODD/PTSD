@@ -3,12 +3,17 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
+    [Header("외부 목적지 매니저")]
+    public PortalManager destinationMgr;
+    [Tooltip("이 포탈이 속한 방의 인덱스 (0 = 태초)")]
+    public int roomIndex;
+
     [Header("카메라 경계 (월드 좌표)")]
     public Vector2 newMinCameraPos;
     public Vector2 newMaxCameraPos;
 
     [Header("데드존 활성화")]
-    public bool deadZoneEnabled = true;
+    public bool deadZoneEnabled = false;
 
     [Header("대상 포탈들")]
     [Tooltip("플레이어가 포탈과 상호작용 시 이동할 대상 포탈들의 Transform 리스트")]
@@ -58,7 +63,7 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && Input.GetKey(KeyCode.F))
+        if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             StartCoroutine(PortalInteract());
         }
@@ -75,32 +80,24 @@ public class Portal : MonoBehaviour
 
     private IEnumerator PortalInteract()
     {
-        // 대상 포탈 배열 확인
-        if (destinationPortals == null || destinationPortals.Length == 0)
-        {
-            Debug.LogWarning("No destination portals assigned!");
-            yield break;
-        }
+        // 1) 현재 방 설정
+        destinationMgr.SetCurrentRoom(roomIndex);
 
-        // 페이드 효과 실행
+        // 2) 페이드 아웃
         CamFol.FadeOutThenIn(fadeOutTime, fadeHoldTime, fadeInTime, Color.black);
         yield return new WaitForSeconds(fadeOutTime);
 
-        // 플레이어 순간이동 - 랜덤 선택
+        // 3) 이동 대상 가져오기
+        Transform dest = destinationMgr.GetNextDestination();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            int idx = Random.Range(0, destinationPortals.Length);
-            Transform dest = destinationPortals[idx];
-            if (dest != null)
-                player.transform.position = dest.position;
-        }
+        if (player != null && dest != null)
+            player.transform.position = dest.position;
 
-        // 카메라 경계 및 줌 설정
+        // 4) 카메라 경계 갱신
         CamFol.SetCameraBorder(newMinCameraPos, newMaxCameraPos);
         nextMove = true;
 
-        // 페이드 홀드 시간 대기
+        // 5) 페이드 홀드
         yield return new WaitForSeconds(fadeHoldTime);
     }
 }
