@@ -67,7 +67,7 @@ public class CameraFollowShake : MonoBehaviour
         originalSize = cam.orthographicSize;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (!followEnabled)
             return;
