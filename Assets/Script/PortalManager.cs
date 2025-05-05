@@ -12,7 +12,7 @@ public class PortalManager : MonoBehaviour
     public Transform primordialPortal;
 
     // 상호작용 시 현재 방(포탈)이 어떤 인덱스인지 설정
-    [HideInInspector] public int currentRoomIndex = -1;
+    public int currentRoomIndex = -1;
 
     // ture 시작 → false면 무조건 태초로, true면 랜덤
     public bool allowRandom = true;
