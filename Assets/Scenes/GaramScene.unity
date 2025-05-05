@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &408995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2650598512246996036, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+  m_PrefabInstance: {fileID: 598187221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &101622644
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +343,10 @@ PrefabInstance:
       value: Room (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8306025467833777602, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: roomIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306025467833777602, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: destinationMgr
       value: 
       objectReference: {fileID: 869761387}
@@ -402,6 +411,10 @@ PrefabInstance:
     - target: {fileID: 7722010682858811862, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: m_Name
       value: Room (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306025467833777602, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: roomIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8306025467833777602, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: destinationMgr
@@ -1174,6 +1187,10 @@ PrefabInstance:
       value: Room (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8306025467833777602, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: roomIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306025467833777602, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: destinationMgr
       value: 
       objectReference: {fileID: 869761387}
@@ -1562,9 +1579,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allDestinationPortals:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2105218385}
+  - {fileID: 1989931691}
+  - {fileID: 408995}
   primordialPortal: {fileID: 1940755051}
   currentRoomIndex: -1
   allowRandom: 0
@@ -2603,6 +2620,11 @@ Transform:
   - {fileID: 178762064}
   m_Father: {fileID: 2073692795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1989931691 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2650598512246996036, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+  m_PrefabInstance: {fileID: 151145384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2073692794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2658,11 @@ Transform:
   - {fileID: 1950591722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2105218385 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2650598512246996036, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+  m_PrefabInstance: {fileID: 112137804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8969933626522392458
 PrefabInstance:
   m_ObjectHideFlags: 0

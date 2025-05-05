@@ -30,7 +30,6 @@ public class OverlapClickDetector : MonoBehaviour
         if (other.CompareTag("Aim"))
         {
             isOverlapping = true;
-            Debug.Log("Object2와 겹침 시작");
         }
     }
 
@@ -40,7 +39,6 @@ public class OverlapClickDetector : MonoBehaviour
         if (other.CompareTag("Aim"))
         {
             isOverlapping = false;
-            Debug.Log("Object2와 겹침 종료");
         }
     }
 
@@ -51,7 +49,7 @@ public class OverlapClickDetector : MonoBehaviour
         if (isOverlapping && Input.GetMouseButtonDown(0))
         {
             isFeatureActivated = true;
-            Debug.Log("기능 활성화! isFeatureActivated = " + isFeatureActivated);
+            Debug.Log(isFeatureActivated);
             // 필요하다면 한 번만 실행하게 막기
             // enabled = false;
         }
