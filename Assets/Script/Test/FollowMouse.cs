@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MouseChaser : MonoBehaviour
 {
+    public static MouseChaser Instance;
+
     [Header("카메라 및 페이드 설정")]
     public float cameraZoom = 1.0f;
     public float fadeOutTime = 1.5f;
@@ -13,6 +15,8 @@ public class MouseChaser : MonoBehaviour
     [Header("발사 쿨타임 설정")]
     [Tooltip("발사 후 다음 발사까지 대기 시간(초)")]
     public float shootCooldown = 0.2f;
+
+    public Animator effectAnim1;
 
     public Transform ob2;
     public Transform spawn;
@@ -28,6 +32,7 @@ public class MouseChaser : MonoBehaviour
     private void Awake()
     {
         Bang_light.SetActive(false);
+        Instance = this;
     }
 
     private void Start()
@@ -80,13 +85,13 @@ public class MouseChaser : MonoBehaviour
         // 카메라 연출
         if (bulletCount == 0)
         {
-            CameraFollowShake.Instance.Shake(0.2f, 0.5f);
+            CameraFollowShake.Instance.Shake(3f, 0.5f);
             CameraFollowShake.Instance.Zoom(0.85f, 0.5f);
             yield return new WaitForSeconds(0.2f);
         }
         else
         {
-            CameraFollowShake.Instance.Shake(3f, 0.02f);
+            CameraFollowShake.Instance.Shake(15f, 0.02f);
             CameraFollowShake.Instance.Zoom(0.9f, 0.18f);
             yield return new WaitForSeconds(0.15f);
         }
@@ -101,8 +106,10 @@ public class MouseChaser : MonoBehaviour
         if (playerMove != null)
             playerMove.Ice = true;
 
+        effectAnim1.Play("Dead_Test");
+
         // 잠시 대기 후 페이드
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.2f);
         CameraFollowShake.Instance.FadeOutThenIn(
             fadeOutTime, fadeHoldTime, fadeInTime, Color.black);
         yield return new WaitForSeconds(fadeOutTime);
@@ -111,6 +118,8 @@ public class MouseChaser : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
             player.transform.position = spawn.position;
+
+        effectAnim1.Play("Idle_Test");
 
         // 페이드 복구 대기
         yield return new WaitForSeconds(fadeHoldTime + fadeInTime);
@@ -126,7 +135,7 @@ public class MouseChaser : MonoBehaviour
     /// <summary>
     /// Bullets 원본 리스트를 활성화 후 복제, 개수를 초기화합니다.
     /// </summary>
-    private void ResetBullets()
+    public void ResetBullets()
     {
         // 모든 원본 총알 오브젝트 활성화
         foreach (var b in Bullets)

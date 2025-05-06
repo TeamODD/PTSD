@@ -101,6 +101,8 @@ public class Portal_Garam : MonoBehaviour
         CamFol.SetCameraBorder(newMinCameraPos, newMaxCameraPos);
         nextMove = true;
 
+        MouseChaser.Instance.ResetBullets();
+
         // 5) ∆‰¿ÃµÂ »¶µÂ
         yield return new WaitForSeconds(fadeHoldTime);
         if (playerMove != null)
