@@ -399,6 +399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationMgr: {fileID: 1394491248}
   roomIndex: 0
+  newMinCameraPos: {x: 0, y: 0}
+  newMaxCameraPos: {x: 0, y: 0}
   deadZoneEnabled: 0
   destinationPortals: []
   ITKey: {fileID: 0}
@@ -1836,6 +1838,7 @@ MonoBehaviour:
   fadeOutTime: 1.5
   fadeHoldTime: 1
   fadeInTime: 0.2
+  shootCooldown: 0.2
   ob2: {fileID: 1446337714}
   spawn: {fileID: 263604536}
   Bullets:
@@ -1848,7 +1851,6 @@ MonoBehaviour:
   - {fileID: 720054526}
   - {fileID: 1889065019}
   Bang_light: {fileID: 1013265641}
-  bullet: 8
 --- !u!212 &1446337719
 SpriteRenderer:
   m_ObjectHideFlags: 0
