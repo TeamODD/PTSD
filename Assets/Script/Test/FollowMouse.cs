@@ -7,7 +7,7 @@ public class MouseChaser : MonoBehaviour
 {
     [Header("카메라 및 페이드 설정")]
     public float cameraZoom = 1.0f;
-    public float fadeOutTime = 0.8f;
+    public float fadeOutTime = 1.5f;
     public float fadeHoldTime = 1.0f;
     public float fadeInTime = 0.2f;
 
@@ -19,11 +19,17 @@ public class MouseChaser : MonoBehaviour
     Vector3 pos;
     public int bullet = 8;
 
+    private PMove_Garam playerMove;
+
     private void Awake()
     {
         Bang_light.SetActive(false);
     }
 
+    private void Start()
+    {
+        playerMove = PMove_Garam.Instance;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -75,14 +81,16 @@ public class MouseChaser : MonoBehaviour
     {
         bullet = 8;
         Debug.Log("게임 오버");
-        //여기서 플레이어 멈추기
+        if (playerMove != null)
+            playerMove.Ice = true;
         yield return new WaitForSeconds(0.5f);
         CameraFollowShake.Instance.FadeOutThenIn(fadeOutTime, fadeHoldTime, fadeInTime, Color.black);
         yield return new WaitForSeconds(fadeOutTime);
         //리셋//
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = spawn.position;
-        yield return new WaitForSeconds(fadeInTime);
-        //여기서 봉인 해제
+        yield return new WaitForSeconds(fadeHoldTime + fadeInTime);
+        if (playerMove != null)
+            playerMove.Ice = false;
     }
 }
