@@ -16,12 +16,26 @@ public class MouseChaser : MonoBehaviour
     [Tooltip("발사 후 다음 발사까지 대기 시간(초)")]
     public float shootCooldown = 0.2f;
 
-    public Animator effectAnim1;
+    [Header("Ejection Shell Settings")]
+    [Tooltip("배출될 탄피 프리팹")]
+    public GameObject shellPrefab;
+    [Tooltip("탄피 위쪽 속도 최소값")]
+    public float shellMinSpeedY = 2f;
+    [Tooltip("탄피 위쪽 속도 최대값")]
+    public float shellMaxSpeedY = 5f;
+    [Tooltip("탄피 좌우 속도 최대값 (±값)")]
+    public float shellMaxSpeedX = 1f;
+    [Tooltip("회전 속도 최소값 (rad/s)")]
+    public float shellMinAngularSpeed = 5f;
+    [Tooltip("회전 속도 최대값 (rad/s)")]
+    public float shellMaxAngularSpeed = 15f;
 
+    public Animator effectAnim1;
     public Transform ob2;
     public Transform spawn;
-    public List<GameObject> Bullets;           // 총알 원본 리스트
-    private List<GameObject> Bullets_rep;       // 남은 총알 리스트
+
+    public List<GameObject> Bullets;           // 총알 원본 리스트 
+    private List<GameObject> Bullets_rep;       // 남은 총알 리스트 
     public GameObject Bang_light;
 
     private int bulletCount;
@@ -38,16 +52,14 @@ public class MouseChaser : MonoBehaviour
     private void Start()
     {
         playerMove = PMove_Garam.Instance;
-        ResetBullets();  // 총알 초기화
+        ResetBullets();  // 총알 초기화 
     }
 
     private void Update()
     {
-        // 쿨타이머 감소
         if (shootTimer > 0f)
             shootTimer -= Time.deltaTime;
 
-        // 발사 가능 조건: 게임오버 중이 아니고, 쿨타임 지났으며, 발사 버튼 클릭 시
         if (!isGameOver && bulletCount > 0 && shootTimer <= 0f && Input.GetMouseButtonDown(0))
         {
             StartCoroutine(Bang());
@@ -57,13 +69,11 @@ public class MouseChaser : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // 마우스 따라다니는 오브젝트 위치 갱신
         Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(
             Input.mousePosition.x, Input.mousePosition.y, 9f));
         if (ob2 != null)
             ob2.position = pos;
 
-        // 총알이 다 떨어지면 게임 오버
         if (bulletCount == 0 && !isGameOver)
         {
             StartCoroutine(GameOver());
@@ -74,15 +84,38 @@ public class MouseChaser : MonoBehaviour
     {
         Bang_light.SetActive(true);
 
-        // 총알 하나 소비
+        // 총알 하나 소비 및 위치 저장 
         bulletCount--;
         int last = Bullets_rep.Count - 1;
-        Bullets_rep[last].SetActive(false);
+        GameObject lastBullet = Bullets_rep[last];
+        Vector3 bulletPos = lastBullet.transform.position;
+
+        // 총알 비활성화 
+        lastBullet.SetActive(false);
         Bullets_rep.RemoveAt(last);
+
+        // 탄피 배출 
+        if (shellPrefab != null)
+        {
+            GameObject shell = Instantiate(shellPrefab, bulletPos, Quaternion.identity);
+            Rigidbody rb = shell.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                // 랜덤 속도 적용 
+                float speedX = Random.Range(-shellMaxSpeedX, shellMaxSpeedX);
+                float speedY = Random.Range(shellMinSpeedY, shellMaxSpeedY);
+                rb.linearVelocity = new Vector3(speedX, speedY, 0f);
+
+                // 랜덤 회전 속도 적용 (z축 회전) 
+                float angSpeed = Random.Range(shellMinAngularSpeed, shellMaxAngularSpeed) * (Random.value < 0.5f ? -1f : 1f);
+                rb.angularVelocity = new Vector3(0f, 0f, angSpeed);
+            }
+            Destroy(shell, 5f);  // 일정 시간 후 제거 
+        }
 
         Debug.Log($"탕! 남은 탄 수: {bulletCount}");
 
-        // 카메라 연출
+        // 카메라 연출 
         if (bulletCount == 0)
         {
             CameraFollowShake.Instance.Shake(3f, 0.5f);
@@ -108,23 +141,18 @@ public class MouseChaser : MonoBehaviour
 
         effectAnim1.Play("Dead_Test");
 
-        // 잠시 대기 후 페이드
         yield return new WaitForSeconds(1.2f);
         CameraFollowShake.Instance.FadeOutThenIn(
             fadeOutTime, fadeHoldTime, fadeInTime, Color.black);
         yield return new WaitForSeconds(fadeOutTime);
 
-        // 플레이어 리셋 위치
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
             player.transform.position = spawn.position;
 
         effectAnim1.Play("Idle_Test");
-
-        // 페이드 복구 대기
         yield return new WaitForSeconds(fadeHoldTime + fadeInTime);
 
-        // 총알 리셋 및 발사 허용
         ResetBullets();
         isGameOver = false;
 
@@ -132,18 +160,13 @@ public class MouseChaser : MonoBehaviour
             playerMove.Ice = false;
     }
 
-    /// <summary>
-    /// Bullets 원본 리스트를 활성화 후 복제, 개수를 초기화합니다.
-    /// </summary>
     public void ResetBullets()
     {
-        // 모든 원본 총알 오브젝트 활성화
         foreach (var b in Bullets)
         {
             b.SetActive(true);
         }
 
-        // 잔여 리스트 재설정
         Bullets_rep = new List<GameObject>(Bullets);
         bulletCount = Bullets_rep.Count;
         shootTimer = 0f;
