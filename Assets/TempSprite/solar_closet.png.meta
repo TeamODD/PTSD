@@ -218,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 853ea0a40d91ed84fa7317d84b9d96a3
-      internalID: 1039307983
+      spriteID: dd3464db4d3db594cbf5fc1cf4d5a23f
+      internalID: 7676149029482004291
       vertices: []
       indices: 
       edges: []
@@ -228,7 +228,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 743e4ad15e8e6d04a8346e053029e787
+    spriteID: 21f80846e89bd604da863a9bdb2154d4
     internalID: 0
     vertices: []
     indices: 
@@ -238,11 +238,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      solar_closet_0: -432270296
-      solar_closet_1: 1039307983
-      solar_closet_2: 1193115687
-      solar_closet_3: 987807023
-      solar_closet_4: 1879641079
+      solar_closet_1: 7676149029482004291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

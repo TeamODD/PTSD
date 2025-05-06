@@ -194,9 +194,9 @@ TextureImporter:
       name: RoomBackground_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 5
         y: 9
-        width: 585
+        width: 584
         height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -206,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb8f4787f749a09478710c130da212c0
-      internalID: -1474172917
+      spriteID: 897becd3c95f0dc4d9e45702fe1399d7
+      internalID: -3572254825769260629
       vertices: []
       indices: 
       edges: []
@@ -216,7 +216,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f9644e7d8bf4ae14cade5fc2891a37db
+    spriteID: 1ab5cb5b5078b164489d455bd676ff7a
     internalID: 0
     vertices: []
     indices: 
@@ -226,7 +226,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RoomBackground_0: -1474172917
+      RoomBackground_0: -3572254825769260629
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
