@@ -302,6 +302,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: bed_1
       objectReference: {fileID: 0}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Size.x
+      value: 5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3572254825769260629, guid: 6fa766f4d63ca9b44be3272640ad7cc7, type: 3}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2122107185238573207, guid: 0ad1640e4b51b9f4f96ef6465a210239, type: 3}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4004196482843561091, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -375,6 +395,26 @@ PrefabInstance:
     - target: {fileID: 1050086045200169031, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: m_Name
       value: bed_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Size.x
+      value: 5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3572254825769260629, guid: 6fa766f4d63ca9b44be3272640ad7cc7, type: 3}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2122107185238573207, guid: 0ad1640e4b51b9f4f96ef6465a210239, type: 3}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4004196482843561091, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1123,7 +1163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3921441551649640537, guid: 388a286bcbfef314db0ef58713fd23c8, type: 3}
+  m_Sprite: {fileID: 1915868162, guid: 388a286bcbfef314db0ef58713fd23c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1131,7 +1171,7 @@ SpriteRenderer:
   m_Size: {x: 0.11, y: 0.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &506819274
@@ -1160,6 +1200,26 @@ PrefabInstance:
     - target: {fileID: 1050086045200169031, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: m_Name
       value: bed_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Size.x
+      value: 5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3572254825769260629, guid: 6fa766f4d63ca9b44be3272640ad7cc7, type: 3}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2122107185238573207, guid: 0ad1640e4b51b9f4f96ef6465a210239, type: 3}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4004196482843561091, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2548,7 +2608,7 @@ SpriteRenderer:
   m_Size: {x: 0.24, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1754354518
@@ -2804,6 +2864,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1702816614}
     m_Modifications:
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Size.x
+      value: 5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3572254825769260629, guid: 6fa766f4d63ca9b44be3272640ad7cc7, type: 3}
+    - target: {fileID: 3069414137477566464, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2122107185238573207, guid: 0ad1640e4b51b9f4f96ef6465a210239, type: 3}
+    - target: {fileID: 3971516605289315819, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4004196482843561091, guid: 65d5d95a0b7e7bd4699039ad61b6aca1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
